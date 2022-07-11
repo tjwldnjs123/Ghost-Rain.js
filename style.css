@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.container {
+  width: 800px;
+  height: 600px;
+  border: 1px solid red;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+h1 {
+  width: 100%;
+  background-color: darkblue;
+  color: white;
+  height: 5rem;
+  text-align: center;
+  padding-top: 1rem;
+  font-size: 50px;
+}
+.clock {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+  margin-top: 5px;
+
+  height: 80px;
+  font-size: 20px;
+}
+.clock img {
+  width: 60px;
+  height: 60px;
+}
+.clock span {
+  padding-top: 6px;
+}
