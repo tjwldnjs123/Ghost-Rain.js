@@ -15,3 +15,7 @@ document.addEventListener("keydown", function (e) {
     heroElement.className = "right";
   }
 });
+
+document.addEventListener("keyup", function () {
+  heroElement.className = "stop";
+});

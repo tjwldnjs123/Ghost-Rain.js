@@ -9,3 +9,4 @@ const HERO_HEIGHT = 54;
 
 const bg = document.getElementById("bg");
 const heroElement = document.getElementById("hero");
+const ghostElement = document.getElementById("");

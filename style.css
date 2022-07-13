@@ -41,6 +41,7 @@ h1 {
   height: 500px;
   background: url("./images/bg.png") no-repeat;
 }
+
 #hero {
   position: absolute;
   bottom: 0;

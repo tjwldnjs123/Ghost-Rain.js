@@ -1,3 +1,9 @@
+let time = 10;
+
+function randomNum(min, max) {
+  return Math.floor(Math.random() * (max + 1 - min)) + min;
+}
+
 function createGhost() {
   let enemyTop = 0;
   const ghostElement = document.createElement("div");
@@ -30,6 +36,10 @@ function createGhost() {
 
 function move(top, el) {
   top++;
+
+  if (time < 0) {
+    el.remove();
+  }
 
   if (top > BG_HEIGHT - (HERO_HEIGHT + GHOST_HEIGHT)) {
     const ghostLeft = Number(el.style.left.split("px")[0]);
@@ -70,10 +80,25 @@ function die(ghostElement) {
   }, 1000);
 }
 
-setInterval(() => {
-  createGhost();
-}, 3000);
+let startBtn = document.getElementById("startBtn");
 
-function randomNum(min, max) {
-  return Math.floor(Math.random() * (max + 1 - min)) + min;
-}
+startBtn.addEventListener("click", () => {
+  startBtn.disabled = true;
+  let interval = setInterval(() => {
+    createGhost();
+  }, 3000);
+  setInterval(() => {
+    if (time >= 0) {
+      const timer = document.getElementById("timer");
+      const minutes = Math.floor(time / 60);
+      const seconds = String(time % 60).padStart(2, "0");
+
+      timer.innerText = minutes + ":" + seconds;
+      time -= 1;
+      console.log(time);
+    } else if (time < 0) {
+      document.getElementById("timer").innerText = "GAME OVER";
+      clearInterval(interval);
+    }
+  }, 1000);
+});
